@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where Waking Up Teachers Disagree</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f7f6f3;
+  --surface: #ffffff;
+  --border: #e4e2dc;
+  --text: #1a1a18;
+  --text-muted: #6b6966;
+  --accent: #2d5a27;
+  --accent-light: #eef3ec;
+  --c1: #2d5a27;
+  --c2: #1a4a72;
+  --c3: #7a3200;
+  --c4: #4a1f6b;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  padding: 52px 24px 20px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-size: clamp(1.375rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Tab strip */
+.tab-strip-wrap {
+  max-width: 660px;
+  margin: 28px auto 0;
+  padding: 0 20px;
+}
+
+.tab-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.tab-btn {
+  padding: 9px 18px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.tab-btn:hover { border-color: var(--accent); color: var(--accent); }
+.tab-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Main */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 16px 52px;
+}
+
+.debate {
+  display: none;
+  width: 100%;
+  max-width: 640px;
+  animation: fadeIn 0.25s ease;
+}
+
+.debate.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.debate-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  padding: 40px 40px 36px;
+}
+
+@media (max-width: 520px) {
+  .debate-card { padding: 28px 22px 24px; }
+}
+
+.debate-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.debate-q {
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  margin-bottom: 12px;
+}
+
+.debate-framing {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.camps-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.camps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.camp {
+  border-radius: 12px;
+  background: var(--bg);
+  border-left: 3px solid;
+  overflow: hidden;
+}
+
+.camp:nth-child(1) { border-color: var(--c1); }
+.camp:nth-child(2) { border-color: var(--c2); }
+.camp:nth-child(3) { border-color: var(--c3); }
+.camp:nth-child(4) { border-color: var(--c4); }
+
+.camp-body {
+  padding: 16px 18px 12px;
+}
+
+.camp-name {
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 5px;
+}
+
+.camp:nth-child(1) .camp-name { color: var(--c1); }
+.camp:nth-child(2) .camp-name { color: var(--c2); }
+.camp:nth-child(3) .camp-name { color: var(--c3); }
+.camp:nth-child(4) .camp-name { color: var(--c4); }
+
+.camp-desc {
+  font-size: 0.9rem;
+  line-height: 1.62;
+  color: var(--text);
+}
+
+.camp-teachers {
+  padding: 10px 18px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-top: 1px solid var(--border);
+}
+
+.teacher-chip {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid;
+}
+
+.camp:nth-child(1) .teacher-chip { border-color: #b8d4b4; color: var(--c1); background: #f0f7ee; }
+.camp:nth-child(2) .teacher-chip { border-color: #b3c8e0; color: var(--c2); background: #eef4fb; }
+.camp:nth-child(3) .teacher-chip { border-color: #d4baa8; color: var(--c3); background: #faf3ee; }
+.camp:nth-child(4) .teacher-chip { border-color: #c8b8d8; color: var(--c4); background: #f5f0fa; }
+
+.absence-note {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-muted);
+  padding: 8px 18px 14px;
+  border-top: 1px solid var(--border);
+}
+
+/* Corpus note */
+.corpus-note {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 16px;
+  background: #fef9ec;
+  border: 1px solid #e8ddb3;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 0.8rem;
+  color: #5a4e00;
+  line-height: 1.5;
+}
+
+/* Bottom nav */
+.bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 640px;
+  margin-top: 20px;
+}
+
+.nav-btn {
+  padding: 11px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  font-family: inherit;
+}
+
+.nav-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.nav-btn:disabled { opacity: 0.3; cursor: default; }
+
+.nav-counter { font-size: 0.8rem; color: var(--text-muted); }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px 20px;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.footer-label { color: var(--text-muted); }
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover { text-decoration: underline; }
+
+.footer-attr {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 480px;
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Waking Up corpus · 26+ teachers</div>
+  <h1>Where Waking Up Teachers Disagree</h1>
+  <p class="subtitle">The Waking Up app features 26+ contemplative teachers. On the questions that matter most, they land on opposite sides — and the app's own host doesn't always resolve them.</p>
+</header>
+
+<div class="tab-strip-wrap">
+  <div class="tab-strip" id="tabs">
+    <button class="tab-btn active" onclick="show(0)">Does practice accumulate?</button>
+    <button class="tab-btn" onclick="show(1)">Can you cherry-pick?</button>
+    <button class="tab-btn" onclick="show(2)">Already awakened?</button>
+    <button class="tab-btn" onclick="show(3)">Is it always safe?</button>
+    <button class="tab-btn" onclick="show(4)">What is suffering for?</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- Debate 1 -->
+  <div class="debate active" id="d0">
+    <div class="debate-card">
+      <div class="debate-num">Debate 1 of 5</div>
+      <div class="debate-q">Does more practice lead to more benefit?</div>
+      <div class="debate-framing">Every app, retreat center, and teacher incentive assumes the answer is yes. The Waking Up corpus reveals a split: roughly half the teachers say dosage matters, the other half say the premise is wrong. Sam Harris has no dosage model and has acknowledged losing his sense of urgency about practice over time.</div>
+      <div class="camps-label">Where the teachers divide</div>
+      <div class="camps">
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Yes — practice accumulates</div>
+            <div class="camp-desc">Real gains come from sustained effort. The skill deepens over time. Someone with decades of daily practice has a genuine advantage.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Charlotte Joko Beck</span>
+            <span class="teacher-chip">Henry Shukman</span>
+            <span class="teacher-chip">Joseph Goldstein</span>
+            <span class="teacher-chip">Donald Robertson</span>
+            <span class="teacher-chip">Amishi Jha</span>
+            <span class="teacher-chip">Rick Hanson</span>
+            <span class="teacher-chip">Arthur Brooks</span>
+            <span class="teacher-chip">Shinzen Young</span>
+            <span class="teacher-chip">Kieran Setiya</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">No — you can't improve what's already complete</div>
+            <div class="camp-desc">The thing you're looking for was never absent. A long-term practitioner has no fundamental advantage over someone encountering this for the first time.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Kodo Sawaki</span>
+            <span class="teacher-chip">Adyashanti</span>
+            <span class="teacher-chip">Gangaji</span>
+            <span class="teacher-chip">Joan Tollifson</span>
+            <span class="teacher-chip">Oliver Burkeman</span>
+            <span class="teacher-chip">Richard Lang</span>
+            <span class="teacher-chip">John Astin</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">The relationship is non-linear</div>
+            <div class="camp-desc">Too little and nothing shifts. Too much and it can become counterproductive. Individual variation matters more than total hours. The curve isn't what the industry assumes.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Willoughby Britton</span>
+            <span class="teacher-chip">Loch Kelly</span>
+            <span class="teacher-chip">James Low</span>
+            <span class="teacher-chip">Stephan Bodian</span>
+            <span class="teacher-chip">Christopher Titmuss</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">There's no path — and no one to walk it</div>
+            <div class="camp-desc">The dosage question assumes a project and a practitioner. Both of which are exactly what practice is supposed to undo. The frame is self-defeating.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Jim Newman</span>
+            <span class="teacher-chip">Robert Sapolsky</span>
+            <span class="teacher-chip">Peter Fenner</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="corpus-note">Sam Harris has no explicit dosage model and has acknowledged, in his own lessons, losing his sense of urgency about formal sitting practice. He is not in any of these camps — which is itself a data point.</div>
+  </div>
+
+  <!-- Debate 2 -->
+  <div class="debate" id="d1">
+    <div class="debate-card">
+      <div class="debate-num">Debate 2 of 5</div>
+      <div class="debate-q">Can you dissolve the neurotic self without dissolving the motivated self?</div>
+      <div class="debate-framing">Mindfulness promises to reduce anxiety, reactivity, and ego-driven suffering. But the anxious self and the driven self may run on the same machinery. If you weaken one, do you weaken both? This is the question the Waking Up corpus never resolves — and mostly avoids.</div>
+      <div class="camps-label">Where the teachers divide</div>
+      <div class="camps">
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Yes — acceptance enables clearer action</div>
+            <div class="camp-desc">When reactivity dissolves, what remains is more effective, not less. Genuine motivation doesn't require anxiety to function. The claim: acceptance and ambition are compatible.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Sam Harris</span>
+            <span class="teacher-chip">Diane Musho Hamilton</span>
+            <span class="teacher-chip">Rick Hanson</span>
+            <span class="teacher-chip">Arthur Brooks</span>
+            <span class="teacher-chip">Loch Kelly</span>
+            <span class="teacher-chip">Stephan Bodian</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">No — you can't cherry-pick</div>
+            <div class="camp-desc">The capacity for sustained effort, deferred gratification, and competitive ambition are all ego-driven. There is no surgical option for dissolving only the parts you don't like.</div>
+          </div>
+          <div class="absence-note">No teacher in the corpus directly states this position — which is the most significant finding. The argument that you can't cherry-pick is structurally present but never named.</div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Both selves dissolve — something else takes over</div>
+            <div class="camp-desc">At sufficient depth, the neurotic/motivated distinction collapses. The self that was trying to cherry-pick is the very thing that dissolves. What replaces it is action without a self behind it.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Jim Newman</span>
+            <span class="teacher-chip">John Astin</span>
+            <span class="teacher-chip">Gangaji</span>
+            <span class="teacher-chip">Joan Tollifson</span>
+            <span class="teacher-chip">Adyashanti</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Unresolved — no mechanism given</div>
+            <div class="camp-desc">The question is acknowledged but left open. "Acceptance doesn't mean passivity" is asserted. What takes over for self-interested goals — career, creative achievement, competitive success — is never explained.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Sam Harris</span>
+            <span class="teacher-chip">Peter Fenner</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="corpus-note">This is the structural gap in the corpus. Across ~760 hours of content, no teacher offers a mechanism for what motivates self-interested action after ego dissolution. The question is either avoided, asserted away ("compassion fills the gap"), or acknowledged and left open.</div>
+  </div>
+
+  <!-- Debate 3 -->
+  <div class="debate" id="d2">
+    <div class="debate-card">
+      <div class="debate-num">Debate 3 of 5</div>
+      <div class="debate-q">Are you already awakened right now?</div>
+      <div class="debate-framing">One of the oldest debates in contemplative practice. The Waking Up corpus features teachers on every side — including at least one who calls the "you're already there" teaching outright dangerous, and another whose own awakening experience directly contradicts the "always already" position.</div>
+      <div class="camps-label">Where the teachers divide</div>
+      <div class="camps">
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Yes — right now, no practice needed</div>
+            <div class="camp-desc">Awareness is already present, complete, undamaged. Recognition is available immediately. The entire project of gradual practice may be misdirected effort toward something you already are.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Stephan Bodian</span>
+            <span class="teacher-chip">Peter Fenner</span>
+            <span class="teacher-chip">Richard Lang</span>
+            <span class="teacher-chip">John Astin</span>
+            <span class="teacher-chip">Gangaji</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Awareness is always present, but a real shift is still needed</div>
+            <div class="camp-desc">The underlying nature is always there, but recognition requires stabilization. There's a difference between a glimpse and a stable change. The "always already" framing can mislead.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Sam Harris</span>
+            <span class="teacher-chip">Adyashanti</span>
+            <span class="teacher-chip">James Low</span>
+            <span class="teacher-chip">Loch Kelly</span>
+            <span class="teacher-chip">Shinzen Young</span>
+            <span class="teacher-chip">Rick Hanson</span>
+            <span class="teacher-chip">Joseph Goldstein</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">No — there's a real, irreversible shift with a clear before and after</div>
+            <div class="camp-desc">Awakening is a genuine, verifiable change — not a reframing or recognition. The "you're already there" teaching may be technically true in some sense but is functionally misleading and can produce complacency rather than transformation.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Henry Shukman</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">The claim is problematic</div>
+            <div class="camp-desc">Telling practitioners they're already enlightened produces nothing transformative. It tends to generate spiritual bypassing and can, in some cases, cause measurable harm.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Christopher Titmuss</span>
+            <span class="teacher-chip">Willoughby Britton</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="corpus-note">Shukman's position is uniquely data-grounded: he points to his own cessation experience as evidence that awakening is a real, irreversible shift — which simultaneously undermines both the "always already there" camp and the "nowhere to get" camp.</div>
+  </div>
+
+  <!-- Debate 4 -->
+  <div class="debate" id="d3">
+    <div class="debate-card">
+      <div class="debate-num">Debate 4 of 5</div>
+      <div class="debate-q">Is meditation always safe?</div>
+      <div class="debate-framing">The wellness industry treats this as obvious. But among Waking Up teachers, the split is stark: a handful acknowledge adverse effects explicitly and in detail; the majority — including Sam Harris — do not address it at all. The silence is structural, not accidental.</div>
+      <div class="camps-label">Where the teachers divide</div>
+      <div class="camps">
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Adverse effects are real and documented</div>
+            <div class="camp-desc">The empirical evidence for adverse effects — ranging from unsettling to seriously disorienting — is robust. Individual variation in response to different techniques is real, consistent, and underdisclosed. Informed consent requires acknowledging this.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Willoughby Britton</span>
+            <span class="teacher-chip">Henry Shukman</span>
+            <span class="teacher-chip">Diane Musho Hamilton</span>
+            <span class="teacher-chip">Loch Kelly</span>
+            <span class="teacher-chip">Stephan Bodian</span>
+            <span class="teacher-chip">Gangaji</span>
+            <span class="teacher-chip">Rick Hanson</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Individual variation matters — one size doesn't fit all</div>
+            <div class="camp-desc">Different techniques work differently for different people. What's reliable for one practitioner can be actively unhelpful for another. The approach has to match the individual.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Willoughby Britton</span>
+            <span class="teacher-chip">Shinzen Young</span>
+            <span class="teacher-chip">Amishi Jha</span>
+            <span class="teacher-chip">Gangaji</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Not addressed</div>
+            <div class="camp-desc">These teachers do not discuss adverse effects, limitations, or individual risk in their Waking Up content. This is not a neutral position — it shapes what practitioners expect from practice.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Sam Harris</span>
+            <span class="teacher-chip">Kodo Sawaki</span>
+            <span class="teacher-chip">James Low</span>
+            <span class="teacher-chip">Charlotte Joko Beck</span>
+            <span class="teacher-chip">Joan Tollifson</span>
+            <span class="teacher-chip">Peter Fenner</span>
+            <span class="teacher-chip">Joseph Goldstein</span>
+            <span class="teacher-chip">Christopher Titmuss</span>
+            <span class="teacher-chip">John Astin</span>
+            <span class="teacher-chip">Kieran Setiya</span>
+            <span class="teacher-chip">Jim Newman</span>
+            <span class="teacher-chip">Donald Robertson</span>
+            <span class="teacher-chip">Robert Sapolsky</span>
+            <span class="teacher-chip">Oliver Burkeman</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Safety depends on guidance</div>
+            <div class="camp-desc">The same technique produces very different outcomes with skilled individual guidance vs. self-directed app-based practice. The gap between those two contexts is almost never acknowledged.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Stephan Bodian</span>
+            <span class="teacher-chip">Henry Shukman</span>
+            <span class="teacher-chip">Willoughby Britton</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="corpus-note">Britton is the only teacher in the corpus brought on specifically to address adverse effects. Among the 26 teachers, she is the primary — and in many cases only — voice documenting what can go wrong. The asymmetry between the depth of coverage on benefits vs. harms is itself a finding.</div>
+  </div>
+
+  <!-- Debate 5 -->
+  <div class="debate" id="d4">
+    <div class="debate-card">
+      <div class="debate-num">Debate 5 of 5</div>
+      <div class="debate-q">What is suffering actually for?</div>
+      <div class="debate-framing">The Waking Up corpus contains both therapeutic teachers (mindfulness reduces suffering) and contemplative teachers (suffering is the teacher). These frameworks are in direct tension. Both claim to be what "mindfulness" is — but they point in opposite directions.</div>
+      <div class="camps-label">Where the teachers divide</div>
+      <div class="camps">
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Suffering is a necessary teacher — move toward it</div>
+            <div class="camp-desc">Suffering is what wakes you up. The instinct to avoid discomfort is the very mechanism keeping you stuck. Moving toward it, not away, is how practice deepens. Eliminating it prematurely removes the signal.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Adyashanti</span>
+            <span class="teacher-chip">Charlotte Joko Beck</span>
+            <span class="teacher-chip">Henry Shukman</span>
+            <span class="teacher-chip">Diane Musho Hamilton</span>
+            <span class="teacher-chip">Rick Hanson</span>
+            <span class="teacher-chip">Donald Robertson</span>
+            <span class="teacher-chip">Kieran Setiya</span>
+            <span class="teacher-chip">Arthur Brooks</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Suffering is an obstacle to remove</div>
+            <div class="camp-desc">The reduction of unnecessary suffering is the entire point of practice. Mindfulness is a tool for alleviating what doesn't serve you. The therapeutic model doesn't need a philosophical frame to work.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">James Low</span>
+            <span class="teacher-chip">John Astin</span>
+            <span class="teacher-chip">Willoughby Britton</span>
+            <span class="teacher-chip">Amishi Jha</span>
+            <span class="teacher-chip">Robert Sapolsky</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Suffering is something to see through</div>
+            <div class="camp-desc">Neither a teacher nor an obstacle. Suffering is a pattern to recognize. You don't learn from it or eliminate it — you stop being fooled by it. The problem isn't the suffering, it's the relationship to it.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Joan Tollifson</span>
+            <span class="teacher-chip">Gangaji</span>
+            <span class="teacher-chip">Jim Newman</span>
+          </div>
+        </div>
+        <div class="camp">
+          <div class="camp-body">
+            <div class="camp-name">Suffering is a feedback signal</div>
+            <div class="camp-desc">Suffering is information about misalignment — between behavior and values, action and consequence. It points toward what needs calibration, not transcendence. The question isn't what it's for, but what it's pointing at.</div>
+          </div>
+          <div class="camp-teachers">
+            <span class="teacher-chip">Shinzen Young</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="corpus-note">Sam Harris is not clearly in any camp here — he describes suffering as something to see through but doesn't address the question of what it's for in a sustained way. His content is largely silent on the role of suffering as a teacher.</div>
+  </div>
+
+  <div class="bottom-nav">
+    <button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>← Previous</button>
+    <span class="nav-counter" id="counter">1 / 5</span>
+    <button class="nav-btn" id="nextBtn" onclick="go(1)">Next →</button>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-links">
+    <span class="footer-label">Explore more:</span>
+    <a href="https://nickxma.github.io/meditation-quiz/">What kind of meditator are you?</a>
+    <a href="https://nickxma.github.io/meditation-debates/">The generic version of these debates</a>
+    <a href="https://nickxma.github.io/meditation-recommender/">What should I actually practice?</a>
+  </div>
+  <div class="footer-attr">Positions synthesized from the Waking Up transcript corpus. No direct quotes. Teacher views are characterized, not transcribed — attributions reflect the dominant position in each teacher's Waking Up content.</div>
+</footer>
+
+<script>
+let current = 0;
+const total = 5;
+
+function show(idx) {
+  document.querySelectorAll('.debate').forEach((d, i) => d.classList.toggle('active', i === idx));
+  document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+  current = idx;
+  document.getElementById('prevBtn').disabled = idx === 0;
+  document.getElementById('nextBtn').disabled = idx === total - 1;
+  document.getElementById('counter').textContent = `${idx + 1} / ${total}`;
+}
+
+function go(dir) {
+  const next = current + dir;
+  if (next < 0 || next >= total) return;
+  show(next);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
