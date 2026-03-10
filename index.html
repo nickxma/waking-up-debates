@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Where Waking Up Teachers Disagree</title>
+<title>Where Meditation Teachers Disagree</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -182,7 +182,8 @@ h1 {
 .modal-section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; margin-top: 20px; }
 .modal-position { font-size: 0.9375rem; line-height: 1.65; color: var(--text); }
 .modal-insight { font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); font-style: italic; padding: 14px 16px; background: var(--bg); border-radius: 10px; margin-top: 8px; }
-.modal-source { font-size: 0.78rem; color: var(--text-muted); margin-top: 16px; }
+.note-link { color: var(--accent); cursor: pointer; font-weight: 500; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+.note-link:hover { text-decoration-color: var(--accent); }
 
 /* Footer */
 footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; }
@@ -196,9 +197,9 @@ footer a:hover { text-decoration: underline; }
 <body>
 
 <header>
-  <div class="eyebrow">Waking Up corpus · 26 teachers</div>
-  <h1>Where Waking Up Teachers Disagree</h1>
-  <p class="subtitle">The Waking Up app features 26+ contemplative teachers who don't always agree. These are the questions where they diverge most. Tap any name to see the evidence.</p>
+  <div class="eyebrow">26 teachers · transcript corpus</div>
+  <h1>Where Meditation Teachers Disagree</h1>
+  <p class="subtitle">Based on a corpus of transcripts from 26 contemplative teachers. These are the questions where they diverge most. Tap any name to see the evidence.</p>
 </header>
 
 <div class="tab-strip-wrap">
@@ -218,7 +219,7 @@ footer a:hover { text-decoration: underline; }
     <div class="debate-card">
       <div class="debate-num">Debate 1 of 5</div>
       <div class="debate-q">Does more practice lead to more benefit?</div>
-      <div class="debate-framing">Every app, retreat center, and teacher incentive assumes the answer is yes. The Waking Up corpus reveals a split: roughly half the teachers say dosage matters, the other half say the premise is wrong. Sam Harris has no dosage model and has acknowledged losing his sense of urgency about practice.</div>
+      <div class="debate-framing">Every app, retreat center, and teacher incentive assumes the answer is yes. In the available transcripts, the teachers are roughly split: half say dosage matters, the other half say the premise is wrong.</div>
       <div class="camps-label">Where the teachers divide</div>
       <div class="camps">
         <div class="camp"><div class="camp-body"><div class="camp-name">Yes — practice accumulates</div><div class="camp-desc">Real gains come from sustained effort. The skill deepens over time. Someone with decades of daily practice has a genuine advantage.</div></div><div class="camp-teachers"><span class="teacher-chip" onclick="modal('Charlotte Joko Beck',0)">Charlotte Joko Beck</span><span class="teacher-chip" onclick="modal('Henry Shukman',0)">Henry Shukman</span><span class="teacher-chip" onclick="modal('Joseph Goldstein',0)">Joseph Goldstein</span><span class="teacher-chip" onclick="modal('Donald Robertson',0)">Donald Robertson</span><span class="teacher-chip" onclick="modal('Amishi Jha',0)">Amishi Jha</span><span class="teacher-chip" onclick="modal('Rick Hanson',0)">Rick Hanson</span><span class="teacher-chip" onclick="modal('Arthur Brooks',0)">Arthur Brooks</span><span class="teacher-chip" onclick="modal('Shinzen Young',0)">Shinzen Young</span><span class="teacher-chip" onclick="modal('Kieran Setiya',0)">Kieran Setiya</span></div></div>
@@ -227,7 +228,7 @@ footer a:hover { text-decoration: underline; }
         <div class="camp"><div class="camp-body"><div class="camp-name">There's no path — and no one to walk it</div><div class="camp-desc">The dosage question assumes a project and a practitioner. Both are exactly what practice is supposed to undo.</div></div><div class="camp-teachers"><span class="teacher-chip" onclick="modal('Jim Newman',0)">Jim Newman</span><span class="teacher-chip" onclick="modal('Robert Sapolsky',0)">Robert Sapolsky</span><span class="teacher-chip" onclick="modal('Peter Fenner',0)">Peter Fenner</span></div></div>
       </div>
     </div>
-    <div class="corpus-note">Sam Harris has no explicit dosage model and has admitted he is "not logging a lot of hours of formal practice" at this point. He is not in any of these camps — which is itself a data point.</div>
+    <div class="corpus-note">In the available transcripts, no explicit dosage model from <span class="note-link" onclick="modal('Sam Harris',0)">Sam Harris</span> appears. He is not clearly in any of these camps — which is itself a data point. Tap his name to see the evidence.</div>
   </div>
 
   <!-- D1: Cherry-pick -->
@@ -252,7 +253,7 @@ footer a:hover { text-decoration: underline; }
     <div class="debate-card">
       <div class="debate-num">Debate 3 of 5</div>
       <div class="debate-q">Are you already awakened right now?</div>
-      <div class="debate-framing">One of the oldest debates in contemplative practice. The Waking Up corpus features teachers on every side — including one who calls the "you're already there" teaching dangerous, and another whose own experience directly contradicts the "always already" position.</div>
+      <div class="debate-framing">One of the oldest debates in contemplative practice. In the available transcripts, teachers land on every side — including one who calls the "you're already there" teaching dangerous, and another whose own experience directly contradicts the "always already" position.</div>
       <div class="camps-label">Where the teachers divide</div>
       <div class="camps">
         <div class="camp"><div class="camp-body"><div class="camp-name">Yes — right now, no practice needed</div><div class="camp-desc">Awareness is already present, complete, undamaged. Recognition is available immediately. The project of gradual practice may be misdirected effort toward something you already are.</div></div><div class="camp-teachers"><span class="teacher-chip" onclick="modal('Stephan Bodian',2)">Stephan Bodian</span><span class="teacher-chip" onclick="modal('Peter Fenner',2)">Peter Fenner</span><span class="teacher-chip" onclick="modal('Richard Lang',2)">Richard Lang</span><span class="teacher-chip" onclick="modal('John Astin',2)">John Astin</span><span class="teacher-chip" onclick="modal('Gangaji',2)">Gangaji</span></div></div>
@@ -261,7 +262,7 @@ footer a:hover { text-decoration: underline; }
         <div class="camp"><div class="camp-body"><div class="camp-name">The claim is problematic</div><div class="camp-desc">Telling practitioners they're already enlightened produces nothing transformative. It tends to generate spiritual bypassing and can cause measurable harm.</div></div><div class="camp-teachers"><span class="teacher-chip" onclick="modal('Christopher Titmuss',2)">Christopher Titmuss</span><span class="teacher-chip" onclick="modal('Willoughby Britton',2)">Willoughby Britton</span></div></div>
       </div>
     </div>
-    <div class="corpus-note">Shukman points to his own cessation experience as evidence that awakening is a real, irreversible shift — which simultaneously undermines both the "always already there" camp and the "nowhere to get" camp.</div>
+    <div class="corpus-note">In his available transcripts, <span class="note-link" onclick="modal('Henry Shukman',2)">Shukman</span> describes a cessation experience as evidence that awakening is a real, irreversible shift — which would undermine both the "always already there" camp and the "nowhere to get" camp.</div>
   </div>
 
   <!-- D3: Safety -->
@@ -269,7 +270,7 @@ footer a:hover { text-decoration: underline; }
     <div class="debate-card">
       <div class="debate-num">Debate 4 of 5</div>
       <div class="debate-q">Is meditation always safe?</div>
-      <div class="debate-framing">The wellness industry treats this as obvious. Among Waking Up teachers, the split is stark: a handful acknowledge adverse effects explicitly; the majority — including Sam Harris — do not address it at all. The silence is structural.</div>
+      <div class="debate-framing">The wellness industry treats this as obvious. Among these teachers, the split is stark: a handful acknowledge adverse effects explicitly in their transcripts; the majority do not address it at all in the available content.</div>
       <div class="camps-label">Where the teachers divide</div>
       <div class="camps">
         <div class="camp"><div class="camp-body"><div class="camp-name">Adverse effects are real and documented</div><div class="camp-desc">The empirical evidence for adverse effects is robust. Individual variation in response to different techniques is real, consistent, and underdisclosed.</div></div><div class="camp-teachers"><span class="teacher-chip" onclick="modal('Willoughby Britton',3)">Willoughby Britton</span><span class="teacher-chip" onclick="modal('Henry Shukman',3)">Henry Shukman</span><span class="teacher-chip" onclick="modal('Diane Musho Hamilton',3)">Diane Musho Hamilton</span><span class="teacher-chip" onclick="modal('Loch Kelly',3)">Loch Kelly</span><span class="teacher-chip" onclick="modal('Stephan Bodian',3)">Stephan Bodian</span><span class="teacher-chip" onclick="modal('Gangaji',3)">Gangaji</span><span class="teacher-chip" onclick="modal('Rick Hanson',3)">Rick Hanson</span></div></div>
@@ -278,7 +279,7 @@ footer a:hover { text-decoration: underline; }
         <div class="camp"><div class="camp-body"><div class="camp-name">Safety depends on guidance</div><div class="camp-desc">Skilled individual guidance produces very different outcomes than self-directed app-based practice. The gap is almost never acknowledged.</div></div><div class="camp-teachers"><span class="teacher-chip" onclick="modal('Stephan Bodian',3)">Stephan Bodian</span><span class="teacher-chip" onclick="modal('Henry Shukman',3)">Henry Shukman</span><span class="teacher-chip" onclick="modal('Willoughby Britton',3)">Willoughby Britton</span></div></div>
       </div>
     </div>
-    <div class="corpus-note">Britton is the only teacher brought on specifically to address adverse effects. Among 26 teachers, she is the primary — and often only — voice on what can go wrong. The asymmetry between coverage of benefits vs. harms is itself a finding.</div>
+    <div class="corpus-note">In the available transcripts, <span class="note-link" onclick="modal('Willoughby Britton',3)">Britton</span> is the primary — and often only — voice on what can go wrong. The asymmetry between coverage of benefits vs. harms across the corpus is notable.</div>
   </div>
 
   <!-- D4: Suffering -->
@@ -286,7 +287,7 @@ footer a:hover { text-decoration: underline; }
     <div class="debate-card">
       <div class="debate-num">Debate 5 of 5</div>
       <div class="debate-q">What is suffering actually for?</div>
-      <div class="debate-framing">The Waking Up corpus contains therapeutic teachers (reduce suffering) and contemplative teachers (suffering is the teacher). These frameworks are in direct tension. Both claim to be what "mindfulness" is — but they point in opposite directions.</div>
+      <div class="debate-framing">The corpus contains both therapeutic teachers (reduce suffering) and contemplative teachers (suffering is the teacher). These frameworks are in direct tension. Both claim to be what "mindfulness" is — but they point in opposite directions.</div>
       <div class="camps-label">Where the teachers divide</div>
       <div class="camps">
         <div class="camp"><div class="camp-body"><div class="camp-name">Suffering is a necessary teacher — move toward it</div><div class="camp-desc">Suffering wakes you up. The instinct to avoid discomfort keeps you stuck. Moving toward it, not away, is how practice deepens.</div></div><div class="camp-teachers"><span class="teacher-chip" onclick="modal('Adyashanti',4)">Adyashanti</span><span class="teacher-chip" onclick="modal('Charlotte Joko Beck',4)">Charlotte Joko Beck</span><span class="teacher-chip" onclick="modal('Henry Shukman',4)">Henry Shukman</span><span class="teacher-chip" onclick="modal('Diane Musho Hamilton',4)">Diane Musho Hamilton</span><span class="teacher-chip" onclick="modal('Rick Hanson',4)">Rick Hanson</span><span class="teacher-chip" onclick="modal('Donald Robertson',4)">Donald Robertson</span><span class="teacher-chip" onclick="modal('Kieran Setiya',4)">Kieran Setiya</span><span class="teacher-chip" onclick="modal('Arthur Brooks',4)">Arthur Brooks</span></div></div>
@@ -295,7 +296,7 @@ footer a:hover { text-decoration: underline; }
         <div class="camp"><div class="camp-body"><div class="camp-name">Suffering is a feedback signal</div><div class="camp-desc">Suffering is information about misalignment. It points toward what needs calibration, not transcendence.</div></div><div class="camp-teachers"><span class="teacher-chip" onclick="modal('Shinzen Young',4)">Shinzen Young</span></div></div>
       </div>
     </div>
-    <div class="corpus-note">Sam is not clearly in any camp here. His content is largely silent on the role of suffering as a teacher — it's framed primarily as something mindfulness reduces, without theorizing its pedagogical value.</div>
+    <div class="corpus-note"><span class="note-link" onclick="modal('Sam Harris',4)">Sam Harris</span> does not clearly land in any camp here based on the available transcripts. His content primarily frames suffering as something mindfulness reduces, without theorizing its pedagogical value.</div>
   </div>
 
   <div class="bottom-nav">
@@ -315,7 +316,6 @@ footer a:hover { text-decoration: underline; }
     <div class="modal-position" id="mPosition"></div>
     <div class="modal-section-label">Key insight from the corpus</div>
     <div class="modal-insight" id="mInsight"></div>
-    <div class="modal-source" id="mSource"></div>
   </div>
 </div>
 
@@ -326,7 +326,7 @@ footer a:hover { text-decoration: underline; }
     <a href="https://nickxma.github.io/meditation-debates/">The generic version</a>
     <a href="https://nickxma.github.io/meditation-recommender/">What should I actually practice?</a>
   </div>
-  <div class="footer-attr">This is an independent, AI-assisted educational project. It is not affiliated with, endorsed by, or connected to Waking Up, Sam Harris, or any teacher named here. Teacher positions are interpretive summaries for educational purposes only and may not fully represent any individual's views. This is not professional advice. Consult a qualified teacher or clinician for guidance on meditation practice.</div>
+  <div class="footer-attr">This is an independent, AI-assisted educational project. It is not affiliated with, endorsed by, or connected to any teacher named here or their associated organizations. Teacher positions are interpretive summaries based on a limited corpus of transcripts and may not fully represent any individual's views. This is not professional advice.</div>
 </footer>
 
 <script>
@@ -386,7 +386,6 @@ function modal(name, debate) {
   document.getElementById('mName').textContent = name;
   document.getElementById('mPosition').textContent = t.d[debate] || 'Position not available for this debate.';
   document.getElementById('mInsight').textContent = t.i;
-  document.getElementById('mSource').textContent = 'Source: ' + t.s;
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
