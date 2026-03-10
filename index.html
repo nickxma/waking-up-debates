@@ -473,7 +473,7 @@ function show(idx) {
   current = idx;
   document.getElementById('prevBtn').disabled = idx === 0;
   document.getElementById('nextBtn').disabled = idx === total - 1;
-  document.getElementById('counter').textContent = \`\${idx + 1} / \${total}\`;
+  document.getElementById('counter').textContent = `${idx + 1} / ${total}`;
 }
 
 function go(dir) {
